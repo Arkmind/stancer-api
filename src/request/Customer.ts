@@ -1,4 +1,4 @@
-import Client from "@/ressource/Client";
+import { Client } from "@/ressource/Client";
 import { CustomerCreate, CustomerUpdate, Customer as CustomerInterface } from "@/types/customer";
 
 export class Customer {
@@ -39,7 +39,7 @@ export class Customer {
    */
   public async update(id: string, data: CustomerUpdate): Promise<CustomerInterface> {
     try {
-      const response = await this.client.put<CustomerInterface>(`/v1/customer/${id}`, data);
+      const response = await this.client.patch<CustomerInterface>(`/v1/customer/${id}`, data);
       return response;
     } catch (error) {
       throw error;

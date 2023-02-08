@@ -1,4 +1,4 @@
-import Client from "@/ressource/Client";
+import { Client } from "@/ressource/Client";
 import { SEPA, SEPACreate, SEPAUpdate } from "@/types/sepa";
 
 export class Sepa {
@@ -47,7 +47,7 @@ export class Sepa {
    */
   public async update(id: string, data: SEPAUpdate): Promise<SEPA> {
     try {
-      const response = await this.client.put<SEPA>(`/v1/sepa/${id}`, data);
+      const response = await this.client.patch<SEPA>(`/v1/sepa/${id}`, data);
       return response;
     } catch (error) {
       throw error;

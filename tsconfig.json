@@ -18,5 +18,10 @@
     "exclude": [
         "node_modules",
         "**/__tests__/*"
-    ]
+    ],
+    "ts-node": {
+        "require": [
+            "tsconfig-paths/register"
+        ]
+    }
 }

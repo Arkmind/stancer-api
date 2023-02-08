@@ -35,7 +35,7 @@ export interface Refund {
   /**
    * Amount to refund in cents, if omitted will refund the the whole payment Int, have to be =< to the original amount of the payment
    */
-  amount: number;
+  amount?: number;
   /**
    * Processed currency Enum EUR, USD, GPB
    */
@@ -60,4 +60,9 @@ export interface Refund {
    * Whatever if the refund is in live mode Boolean
    */
   live_mode: boolean;
+}
+
+export interface RefundCreate {
+  payment: string;
+  amount?: number;
 }

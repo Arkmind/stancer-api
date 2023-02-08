@@ -5,10 +5,10 @@ import { Device } from "./device";
 import { Refund } from "./refund";
 import { SEPA } from "./sepa";
 
-export interface Currency {
-  EUR: "EUR";
-  USD: "USD";
-  GPB: "GPB";
+export enum Currency {
+  EUR = "EUR",
+  USD = "USD",
+  GPB = "GPB",
 }
 
 export enum PaymentStatus {
@@ -411,6 +411,8 @@ export enum AllowedMethods {
   sepa = "sepa",
 }
 
+export type PaymentResponse = PaymentCardResponseCode | PaymentCardResponseDisputeCode;
+
 export interface Payment {
   /**
    * Payment's id String, fixed size = 29²
@@ -467,7 +469,7 @@ export interface Payment {
   /**
    * The response of the bank processing See Payment response codes
    */
-  response: PaymentCardResponseCode | PaymentCardResponseDisputeCode;
+  response: PaymentResponse;
   /**
    * An auth object See auth description
    */
@@ -498,6 +500,17 @@ export interface Payment {
   live_mode: boolean;
 }
 
+export interface Payments {
+  live_mode: boolean;
+  payments: Array<Payment>;
+  range: {
+    end: number;
+    has_more: boolean;
+    limit: number;
+    start: number;
+  };
+}
+
 export interface PaymentCreate {
   amount: number;
   currency: Currency;
@@ -522,4 +535,27 @@ export interface PaymentUpdate {
   device?: Device;
   status?: PaymentStatus;
   auth?: Auth;
+}
+
+export interface PaymentList {
+  /**
+   * A Unix timestamp filtering payments whom timestamps are equal to or greater
+   */
+  created?: number;
+  /**
+   * An integer value limiting the number of objects to be returned
+   */
+  limit?: number;
+  /**
+   * Fetches payments corresponding to the order_id you specified in your inital payment request
+   */
+  order_id?: string;
+  /**
+   * An integer cursor you can use for pagination starting at index 0
+   */
+  start?: number;
+  /**
+   * Fetches payments corresponding to the unique_id you specified in your inital payment request
+   */
+  unique_id?: string;
 }

@@ -1,4 +1,4 @@
-import Client from "@/ressource/Client";
+import { Client } from "@/ressource/Client";
 import { CreditCardCreate, CreditCardUpdate, CreditCard as CreditCardInterface } from "@/types/creditcard";
 
 export class CreditCard {
@@ -46,7 +46,7 @@ export class CreditCard {
    */
   public async update(id: string, data: CreditCardUpdate): Promise<CreditCardInterface> {
     try {
-      const response = await this.client.put<CreditCardInterface>(`/v1/cards/${id}`, data);
+      const response = await this.client.patch<CreditCardInterface>(`/v1/cards/${id}`, data);
       return response;
     } catch (error) {
       throw error;
