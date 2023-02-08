@@ -139,3 +139,31 @@ The export `Client` as a property named `payout` that is an instance of [`Payout
 **List all Payouts `Client.payout.list(data: PayoutList)`** \
 [PayoutList](dist/types/payout.d.ts)
 </details>
+
+---
+
+# Contribute
+
+Clone the Git repository and start building good stuff.
+
+```bash
+$ git clone git@github.com:Arkmind/stancer-api.git
+$ cd stancer-api
+$ npm install
+```
+
+When done create a pull request respecting git convention.
+
+---
+
+# Credits
+
+- **[Stancer](https://www.stancer.com/)**
+- **[Github](https://github.com/Arkmind/stancer-api)**
+- **[Arkmind](https://github.com/Arkmind/)**
+  
+---
+
+# License
+
+**[MIT](https://github.com/Arkmind/stancer-api/LICENSE)**
