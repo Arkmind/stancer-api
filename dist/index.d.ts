@@ -7,5 +7,4 @@ import { Payment } from "./request/Payment";
 import { Payout } from "./request/Payout";
 import { Refund } from "./request/Refund";
 import { Sepa } from "./request/Sepa";
-
 export { Client, HttpClient, CreditCard, Customer, Dispute, Payment, Payout, Refund, Sepa };
