@@ -25,7 +25,7 @@
     "typescript"
   ],
   "author": "Andy \"Arkmind\" SANT",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Arkmind/stancer-api/issues"
   },
