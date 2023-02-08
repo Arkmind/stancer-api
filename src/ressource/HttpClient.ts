@@ -1,6 +1,9 @@
+import { ErrorManager } from "@/error/ErrorManager";
+
 export class HttpClient {
   private defaultHeaders: any;
   private baseUrl: string = "https://api.stancer.com/";
+  private errorManager: ErrorManager = new ErrorManager();
 
   constructor() {}
 
@@ -21,6 +24,11 @@ export class HttpClient {
         ...headers,
       },
     });
+
+    if (!response.ok) {
+      await this.errorManager.handleError(response);
+    }
+
     return response.json();
   }
 
@@ -34,6 +42,11 @@ export class HttpClient {
         ...headers,
       },
     });
+
+    if (!response.ok) {
+      await this.errorManager.handleError(response);
+    }
+
     return response.json();
   }
 
@@ -47,6 +60,11 @@ export class HttpClient {
         ...headers,
       },
     });
+
+    if (!response.ok) {
+      await this.errorManager.handleError(response);
+    }
+
     return response.json();
   }
 
@@ -59,6 +77,11 @@ export class HttpClient {
         ...headers,
       },
     });
+
+    if (!response.ok) {
+      await this.errorManager.handleError(response);
+    }
+
     return response.json();
   }
 
@@ -72,6 +95,11 @@ export class HttpClient {
         ...headers,
       },
     });
+
+    if (!response.ok) {
+      await this.errorManager.handleError(response);
+    }
+
     return response.json();
   }
 
