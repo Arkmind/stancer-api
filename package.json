@@ -1,7 +1,7 @@
 {
   "name": "stancer-api",
   "version": "1.0.1",
-  "description": "",
+  "description": "Stancer API wrapper for NodeJS.",
   "main": "dist/index.js",
   "files": [
     "dist/**/*"
@@ -18,8 +18,13 @@
     "type": "git",
     "url": "git+https://github.com/Arkmind/stancer-api.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "stancer",
+    "stancer api",
+    "api",
+    "typescript"
+  ],
+  "author": "Andy \"Arkmind\" SANT",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Arkmind/stancer-api/issues"
