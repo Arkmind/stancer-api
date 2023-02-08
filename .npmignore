@@ -1,0 +1,5 @@
+src
+.prettierrc
+nodemon.json
+tsconfig.json
+tslint.json
