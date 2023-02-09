@@ -1,5 +1,5 @@
 import { HttpClient } from "./HttpClient";
-import { NodeEnvironment, Keys } from "@/types/client";
+import { NodeEnvironment, Keys, ClientOptions } from "@/types/client";
 import { Payment } from "@/request/Payment";
 import { getNodeEnvironment } from "@/utils";
 import { client } from "@/error/errorList";
@@ -22,11 +22,11 @@ export class Client extends HttpClient {
   public refund: Refund = new Refund(this);
   public sepa: Sepa = new Sepa(this);
 
-  constructor(keys: Keys, environment?: NodeEnvironment) {
-    super();
+  constructor(keys: Keys, options?: ClientOptions) {
+    super({ fetch });
 
     this.keys = keys;
-    this.environment = environment || this.environment;
+    this.environment = options?.environment || this.environment;
 
     const secretKey = this.keys[`s${this.environment}`];
     if (!secretKey) throw new Error(client.keys.undefined);

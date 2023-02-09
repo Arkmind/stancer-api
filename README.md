@@ -34,6 +34,23 @@ const client = new Client({
 client.customer.get('cust_id');
 ```
 
+Using your own `fetch`
+```ts
+import { Client } from "stancer-api";
+import fetch from "node-fetch@2";
+
+const client = new Client(
+    {
+        stest: process.env.SECRET_TEST_STANCER_API_KEY,
+        sprod: process.env.SECRET_PROD_STANCER_API_KEY,
+    }, 
+    { 
+        environment: process.env.NODE_ENV,
+        fetch 
+    },
+);
+```
+
 ---
 
 ## API Reference

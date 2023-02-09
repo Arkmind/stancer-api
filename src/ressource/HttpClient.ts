@@ -1,11 +1,15 @@
 import { ErrorManager } from "@/error/ErrorManager";
+import { ClientOptions } from "@/types/client";
 
 export class HttpClient {
+  private fetch: Function = fetch;
   private defaultHeaders: any;
   private baseUrl: string = "https://api.stancer.com/";
   private errorManager: ErrorManager = new ErrorManager();
 
-  constructor() {}
+  constructor(options: ClientOptions) {
+    this.fetch = options.fetch || this.fetch;
+  }
 
   public setDefaultHeaders(headers: any): void {
     this.defaultHeaders = headers;
@@ -16,7 +20,7 @@ export class HttpClient {
       data ? new URLSearchParams(data).toString() : ""
     }`;
 
-    const response = await fetch(requestURL, {
+    const response = await this.fetch(requestURL, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +37,7 @@ export class HttpClient {
   }
 
   public async post<Response>(url: string, data: any, headers?: any): Promise<Response> {
-    const response = await fetch(new URL(url, this.baseUrl).href, {
+    const response = await this.fetch(new URL(url, this.baseUrl).href, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -51,7 +55,7 @@ export class HttpClient {
   }
 
   public async put<Response>(url: string, data: any, headers?: any): Promise<Response> {
-    const response = await fetch(new URL(url, this.baseUrl).href, {
+    const response = await this.fetch(new URL(url, this.baseUrl).href, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
@@ -69,7 +73,7 @@ export class HttpClient {
   }
 
   public async delete<Response>(url: string, headers?: any): Promise<Response> {
-    const response = await fetch(new URL(url, this.baseUrl).href, {
+    const response = await this.fetch(new URL(url, this.baseUrl).href, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +90,7 @@ export class HttpClient {
   }
 
   public async patch<Response>(url: string, data: any, headers?: any): Promise<Response> {
-    const response = await fetch(new URL(url, this.baseUrl).href, {
+    const response = await this.fetch(new URL(url, this.baseUrl).href, {
       method: "PATCH",
       body: JSON.stringify(data),
       headers: {
