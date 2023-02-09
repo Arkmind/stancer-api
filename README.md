@@ -161,6 +161,9 @@ The export `Client` as a property named `payout` that is an instance of [`Payout
 
 # Contribute
 
+Requirements :
+- Node.JS > 18.0.0
+
 Clone the Git repository and start building good stuff.
 
 ```bash
