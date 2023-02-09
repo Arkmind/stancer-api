@@ -1,6 +1,6 @@
 {
   "name": "stancer-api",
-  "version": "1.0.9",
+  "version": "1.0.9a",
   "description": "Stancer API wrapper for NodeJS.",
   "main": "dist/index.js",
   "files": [
@@ -12,7 +12,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && npx tsc-alias",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json",
+    "bp": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
