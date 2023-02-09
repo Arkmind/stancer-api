@@ -26,11 +26,11 @@ export interface CreditCard {
   /**
    * Required at creation The customer PAN number String, min = 16, max = 19
    */
-  number: number;
+  number: string;
   /**
    * Given by the API Last 4 PAN number String, fixed size = 4 characters
    */
-  last4: number;
+  last4: string;
   /**
    * Given by the API Card brand String
    */
@@ -46,7 +46,7 @@ export interface CreditCard {
   /**
    * Optional but highly recommanded The card verification code String, fixed size = 3 characters
    */
-  cvc?: number;
+  cvc?: string;
   /**
    * Optional Card holder name String, min = 4, max = 64
    */
@@ -81,7 +81,7 @@ export interface CreditCardCreate {
   number: number;
   exp_month: number;
   exp_year: number;
-  cvc?: number;
+  cvc?: string;
   name?: string;
   tokenize?: boolean;
   zip_code?: string;
