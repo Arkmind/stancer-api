@@ -45,7 +45,7 @@ const client = new Client(
         sprod: process.env.SECRET_PROD_STANCER_API_KEY,
     }, 
     { 
-        environment: process.env.NODE_ENV,
+        environment: process.env.NODE_ENV, // 'test' | 'prod'
         fetch 
     },
 );
