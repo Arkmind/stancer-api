@@ -518,7 +518,7 @@ export interface PaymentCreate {
   order_id?: string;
   unique_id?: string;
   methods_allowed?: Array<AllowedMethods>;
-  card?: CreditCard;
+  card?: CreditCard | string;
   sepa?: SEPA;
   customer?: Customer;
   auth?: Auth;
@@ -532,7 +532,7 @@ export interface PaymentUpdate {
   description?: string;
   return_url?: string;
   customer?: Customer;
-  card?: CreditCard;
+  card?: CreditCard | string;
   sepa?: SEPA;
   device?: Device;
   status?: PaymentStatus;
