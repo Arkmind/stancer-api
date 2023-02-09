@@ -5,4 +5,8 @@ export interface Keys {
   stest?: string | null;
 }
 
+export interface ClientOptions {
+  fetch?: Function;
+}
+
 export type NodeEnvironment = "prod" | "test";
