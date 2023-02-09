@@ -521,6 +521,8 @@ export interface PaymentCreate {
   card?: CreditCard;
   sepa?: SEPA;
   customer?: Customer;
+  auth?: Auth;
+  device?: Device;
 }
 
 export interface PaymentUpdate {
