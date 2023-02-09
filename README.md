@@ -152,7 +152,7 @@ $ cd stancer-api
 $ npm install
 ```
 
-When done create a pull request respecting git convention.
+When done build everything with `npm run build` and create a pull request respecting git convention.
 
 ---
 
