@@ -16,7 +16,7 @@ export class Refund {
    */
   public async create(data: RefundCreate): Promise<RefundInterface> {
     try {
-      const response = await this.client.post<RefundInterface>("/v1/refund", data);
+      const response = await this.client.post<RefundInterface>("/v1/refunds", data);
       return response;
     } catch (error) {
       throw error;
@@ -31,7 +31,7 @@ export class Refund {
    */
   public async get(id: string): Promise<RefundInterface> {
     try {
-      const response = await this.client.get<RefundInterface>(`/v1/refund/${id}`);
+      const response = await this.client.get<RefundInterface>(`/v1/refunds/${id}`);
       return response;
     } catch (error) {
       throw error;
