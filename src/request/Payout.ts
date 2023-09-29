@@ -32,7 +32,7 @@ export class Payout {
    */
   public async get(id: string, type: PayoutTypes, data?: PayoutList): Promise<Payouts> {
     try {
-      const response = await this.client.get<Payouts>(`/v1/payout/${id}/${type}`, data);
+      const response = await this.client.get<Payouts>(`/v1/payouts/${id}/${type}`, data);
       return response;
     } catch (error) {
       throw error;

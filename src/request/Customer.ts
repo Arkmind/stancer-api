@@ -10,7 +10,7 @@ export class Customer {
 
   public async create(data: CustomerCreate): Promise<CustomerInterface> {
     try {
-      const response = await this.client.post<CustomerInterface>("/v1/customer", data);
+      const response = await this.client.post<CustomerInterface>("/v1/customers", data);
       return response;
     } catch (error) {
       throw error;
@@ -24,7 +24,7 @@ export class Customer {
    */
   public async get(id: string): Promise<CustomerInterface> {
     try {
-      const response = await this.client.get<CustomerInterface>(`/v1/customer/${id}`);
+      const response = await this.client.get<CustomerInterface>(`/v1/customers/${id}`);
       return response;
     } catch (error) {
       throw error;
@@ -39,7 +39,7 @@ export class Customer {
    */
   public async update(id: string, data: CustomerUpdate): Promise<CustomerInterface> {
     try {
-      const response = await this.client.patch<CustomerInterface>(`/v1/customer/${id}`, data);
+      const response = await this.client.patch<CustomerInterface>(`/v1/customers/${id}`, data);
       return response;
     } catch (error) {
       throw error;
@@ -53,7 +53,7 @@ export class Customer {
    */
   public async delete(id: string): Promise<CustomerInterface> {
     try {
-      const response = await this.client.delete<CustomerInterface>(`/v1/customer/${id}`);
+      const response = await this.client.delete<CustomerInterface>(`/v1/customers/${id}`);
       return response;
     } catch (error) {
       throw error;
