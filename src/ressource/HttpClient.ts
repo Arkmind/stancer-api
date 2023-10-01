@@ -54,24 +54,6 @@ export class HttpClient {
     return response.json();
   }
 
-  public async put<Response>(url: string, data: any, headers?: any): Promise<Response> {
-    const response = await this.fetch(new URL(url, this.baseUrl).href, {
-      method: "PUT",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-        ...this.defaultHeaders,
-        ...headers,
-      },
-    });
-
-    if (!response.ok) {
-      await this.errorManager.handleError(response);
-    }
-
-    return response.json();
-  }
-
   public async delete<Response>(url: string, headers?: any): Promise<Response> {
     const response = await this.fetch(new URL(url, this.baseUrl).href, {
       method: "DELETE",
@@ -86,7 +68,7 @@ export class HttpClient {
       await this.errorManager.handleError(response);
     }
 
-    return response.json();
+    return response.status;
   }
 
   public async patch<Response>(url: string, data: any, headers?: any): Promise<Response> {
@@ -104,7 +86,7 @@ export class HttpClient {
       await this.errorManager.handleError(response);
     }
 
-    return response.json();
+    return response.status;
   }
 
   public getBasicAuthKey(username: string, password: string = "") {
