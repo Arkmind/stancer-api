@@ -26,7 +26,7 @@ export interface CreditCard {
   /**
    * Required at creation The customer PAN number String, min = 16, max = 19
    */
-  number: string;
+  // number: string; --> used only on CreditCardCreate
   /**
    * Given by the API Last 4 PAN number String, fixed size = 4 characters
    */
@@ -46,11 +46,11 @@ export interface CreditCard {
   /**
    * Optional but highly recommanded The card verification code String, fixed size = 3 characters
    */
-  cvc?: string;
+  // cvc?: string; --> used only on CreditCardCreate
   /**
    * Optional Card holder name String, min = 4, max = 64
    */
-  name?: string;
+  name: string;
   /**
    * Given by the API Type of funding Enum credit, debit, prepaid, universal, charge or deferred. May be null if the type could not be determined.
    */
@@ -66,15 +66,19 @@ export interface CreditCard {
   /**
    * Optional City zip code String, min = 2, max = 8
    */
-  zip_code?: string;
+  zip_code: string;
   /**
    * Optional If you want the card to be tokenized and reused Boolean, default True
    */
-  tokenize?: boolean;
+  tokenize: boolean;
   /**
    * Given by the API The Unix timestamp representing creation date of the object in local time Int
    */
   created: number;
+  /**
+  * Given by the API Network, Boolean inherited from a payment object if linked, default False
+  */
+  live_mode: boolean; //ok
 }
 
 export interface CreditCardCreate {
