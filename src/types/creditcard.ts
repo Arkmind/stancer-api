@@ -54,7 +54,7 @@ export interface CreditCard {
   /**
    * Given by the API Type of funding Enum credit, debit, prepaid, universal, charge or deferred. May be null if the type could not be determined.
    */
-  funding: Funding;
+  funding: Funding | null;
   /**
    * Given by the API Nature of the card Enum personal or corporate. May be null if the nature could not be determined.
    */
