@@ -16,7 +16,7 @@ export class Dispute {
    */
   public async get(id: string): Promise<DisputeInterface> {
     try {
-      const response = await this.client.get<DisputeInterface>(`/v1/dispute/${id}`);
+      const response = await this.client.get<DisputeInterface>(`/v1/disputes/${id}`);
       return response;
     } catch (error) {
       throw error;
